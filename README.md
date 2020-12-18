@@ -31,13 +31,15 @@ The author consulted the following resources when building this tutorial:
 
 Database_Lab_Data.xlsx
 
-Database_Lab_Player_Birthplaces.csv
+Player_Birthplaces.csv
 
-Database_Lab_Team_Locations.csv
+Team_Locations.csv
 
-Database_Lab_Transactions.csv
+Combined_Transactions.csv
 
-MAKE SURE THESE ARE CLEANED UP
+Zip in the GitHub
+
+Google Drive link (ND users only) https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing
 
 # Understanding Relational Databases
 
