@@ -8,11 +8,8 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 ## Acknowledgements
 
 The author consulted the following resources when building this tutorial:
-- [W3 Schools "Syntax"](https://www.w3schools.com/sql/default.asp)
 - [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
-- [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
-- [Library Carpentry "Open Refine"](https://librarycarpentry.org/lc-open-refine/)
 - [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 
 # Table of Contents
@@ -30,25 +27,162 @@ The author consulted the following resources when building this tutorial:
 - [Additional Resources](#additional-resources)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
+# Data
+
+Database_Lab_Data.xlsx
+
+Database_Lab_Player_Birthplaces.csv
+
+Database_Lab_Team_Locations.csv
+
+Database_Lab_Transactions.csv
+
+MAKE SURE THESE ARE CLEANED UP
+
 # Understanding Relational Databases
 
-## Why A Database
+## From table to database
 
-The data we've been using in this tutorial includes a table with information about baseball player birthplaces and birth dates. It also includes a second table with information about where baseball teams are located.
+In *Inventing the Medium*, Janet Murray describes a table as "one of the basic building blocks of information design, an extension of the list through spatialization and the bases for database design."
 
-72- Open the `CSC_Datbase_Lab_Transactions.csv` file in a spreadsheet program.
+FIGURE 1
 
-<blockquote>Q12: What types of fields do you see in the Transactions table? What kinds of connections could you see across these three tables?</blockquote>
+In tabular data structures, columns headers describe the data contained in corresponding columns, or fields. 
 
-73- Let's say we wanted to see how many baseball players born in Puerto Rico played for teams located in the state of Iowa.
+Each row contains as record with data in separate column cells, or fields.
+
+Let's unpack some of the terminology.
+
+Term | Definition
+--- | ---
+**Data** | Any collection of symbolic units, often quantitative, collected or presented for the purpose of analysis. Data become most useful when structured by semantic segmentation into labeled units
+**Record** | An entry in a database representing a single item, made up of discrete fields
+**Fields** | In a database, a field is a segment of a record with a fixed length and data type that corresponds to a single semantic unit, like a name or address
+**Table** | One of the basic building blocks of information design
+
+These building blocks of data structured as records with fields organized in a table are the foundation of a relational database.
+
+We've worked with tabular data (i.e. data organized in a table) earlier in the semester when working with CSV files.
+
+## Why do we need relational databases?
+
+Let's imagine we want to know how many professional baseball players born in Puerto Rico played for teams located in the state of Iowa during the 2016 season.
+
+Our first step is to break down the different components of this research question, with an eye toward what data we would need to answer this question.
+- We would need to have a list of people who played professional baseball during the 2016 season.
+- We would need to know country birthplace information for everyone on that list.
+- We would need to know what professional teams were located in Indiana during the 2016 season.
+- We would need to know which players were on specific teams 
+
+Our next step is to possible sources or resources that might provide this data.
+
+[Baseball Reference](https://www.baseball-reference.com/), "the complete source for current and historical baseball players, teams, scores and leaders," seems like a good place to start.
+
+We could start by looking up the records for an individual player to see what information is available.
+
+Let's take a look at the [individual player page on Baseball Reference](https://www.baseball-reference.com/players/s/samarje01.shtml) for former Notre Dame baseball and football player Jeff Samardzija.
+
+FIGURE 2
+
+FIGURE 3
+
+We can get some pieces of information from this page, like player birthplace and teams played for.
+
+But not all of that information is located in a table structure. 
+
+And the table structure that is present doesn't lend itself to answering our specific research question.
+
+We could also look at the individual team page for a team located in Indiana.
+
+Let's take a look at the [2019 season team page](https://www.baseball-reference.com/register/team.cgi?id=a87c825c) for the South Bend Cubs.
+
+FIGURE 4
+
+FIGURE 5
+
+We can get some pieces of information from this page, like the team location and roster.
+
+But again, not all of that information is located in a table structure.
+
+And the table structure that is present doesn't lend itself to answering our specific research questions.
+
+Since there are only 3 affiliated professional teams in Indiana, manually downloading the spreadsheets for these teams for a single season and wrangling the data into the structure needed to answer our specific research question wouldn't be overly time intensive.
+
+But let's say we might have other research questions down the line, or we might want to make our data available to other researchers. 
+
+Only gathering data that responds to our specific research question might save time in the short term but foreclose possibilities long-term.
+
+Imagine the types of research questions we could ask and answer with data that covered multiple seasons, for teams in multiple locations.
+
+We could do some automated scraping and manual wrangling to end up with data structures that answer our specific research question but also would work to answer a variety of other research questions.
+
+We could have a `Player_Birthplaces` table that includes information about where players were born.
+
+id_person | dob | city | state | country | region | group | lat | long
+--- | --- | --- | --- | --- | --- | --- | --- | ---
+unique id for specific individual players | date of birth (year) | city of birth | state of birth | country of birth | birth country region | birth country geographical group | birth location latitude | birth location longitude
+292345 | 1995 | | Baja California | MX | Central America | Latin America and the Caribbean | 30.033892 | -115.142511
+223204 | 1995 | | Carabobo | VE | South America | Latin America and the Caribbean | 10.166667 | -68.083333
+223511 | 1995 | | Carabobo | VE | South America | Latin America and the Caribbean | 10.166667 | -68.083333
+
+We could have a `Team_Locations` table that includes information about team locations and affiliations.
+
+team_id | season | affiliate_league | affiliate | league | team_name | classification | category | city | state | country
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+unique identifier for each team in specific season | season (year) | league for major league team affiliation | major league team affiliation | minor league name | team name | classification level (in hierarchical classification system) | team major or minor league status | team city | team state | team country
+2016_Arizona_Diamondbacks | 2017 | NL | ARI | Arizona | Diamondbacks | Rk | MiLB | | AZ | US
+2016_DominicanSummer_Diamondbacks1 | 2017 | NL | ARI | Dominican Summer | Diamondbacks 1 | FRk | MiLB | | | DO
+2016_DominicanSummer_Diamondbacks2 | 2017 | NL | ARI | Dominican Summer | Diamondbacks 2 | FRk | MiLB | | | DO
+2016_Northwest_Hillsboro | 2017 | NL | ARI | Northwest | Hillsboro | A- | MiLB | Hillsboro | OR | US
+
+We could also have a `Combined_Transactions` that includes information about which players played on specific teams in a given season.
+
+id_person | season | classification | category | league_name | team_name | team_id
+--- | --- | --- | --- | --- | --- | ---
+unique id for specific individual players | season (year) | classification level (in hierarchical classification system) | team major or minor league status | league name | team name | unique identifier for each team in specific season
+484 | 2016 | MLB | MLB | American | NYY | 2016_American_NYY
+484 | 2016 | MLB | MLB | American | NYY | 2016_American_NYY
+625 | 2016 | MLB | MLB | American | BOS | 2016_American_BOS
+706 | 2016 | MLB | MLB | American | HOU | 2016_American_HOU
+706 | 2016 | MLB | MLB | American | HOU | 2016_American_HOU
+837 | 2016 | MLB | MLB | National | PIT | 2016_National_PIT
+
+Let's take a look at at Excel workbook that includes these three tables tables.
+
+Open the `Database_Lab_Data.xlsx` file in a spreadsheet program.
+
+This Excel workbook includes three tables:
+- Player_Birthplaces
+- Team_Locations
+- Combined_Transactions
+
+<blockquote>QX: Explore the tables. What fields do you see? How would you describe these fields, using the language of string, double, and integer to describe the data types.</blockquote>
+
+Type | Description | Example
+--- | --- | ---
+String | Used to store text or a string of non-integer characters | "This classroom is in Bond Hall" or "student"
+Integer | Used to store positive or negative whole numbers | -25, 0, 25
+Double | Used to store precise numerical values that include decimal points | 3.14159265359
+
+Consult the following resources as needed to understand this data:
+- [ISO 3166 country code table (Wikipedia)](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Decoding_table)
+- [United Nations geographic regions](https://unstats.un.org/unsd/methodology/m49/)
+- [USPS list of state abbreviations](https://about.usps.com/who-we-are/postal-history/state-abbreviations.htm)
+- [Wikipedia list of baseball team abbreviations](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Baseball/Team_abbreviations)
+- [Wikipedia glossary of baseball jargon](https://en.wiktionary.org/wiki/Appendix:Glossary_of_baseball)
+
+
+73- So now that we have some structured data, let's return to our original research question.
 
 74- The `Player_Birthplaces` table includes information about where players were born. The `Team_Locations` table includes information about where teams are located. The `Transactions` table tells us which players played for which teams.
 
-75- But the `Transactions` table on its own doesn't include the information about player birthplace and team location we need to answer the question of how many baseball players born in Puerto Rico played for teams located in the state of Iowa.
+75- But the `Transactions` table on its own doesn't include the information about player birthplace and team location we need to answer the question of how many baseball players born in Puerto Rico played for teams located in the state of Indiana.
 
 76- We could add that location information to the `Transactions` table, but we would end up with significant redundant and duplicate information.
 
 77- Behold the magic of relational databases.
+
+## What is a relational database?
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_29.png?raw=true" alt="Capture_2"  /></p>
 
@@ -56,7 +190,17 @@ Image from Library Carpentry's [Introduction to SQL tutorial](https://librarycar
 
 As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Relational databases consist of one or more tables of data. These tables have fields (columns) and records (rows). Every field has a data type. Every value in the same field of each record has the same type. These tables can be linked to each other when a field in one table can be matched to a field in another table."
 
-78- Linking our three individual data tables in a relational database will enable us to answer the question about Puerto Rican players in Iowa without having to change the underlying data structure.
+78- Linking our three individual data tables in a relational database will enable us to answer the question about Puerto Rican players in Indiana without having to change the underlying data structure.
+
+### Database Terminology
+
+A ***database*** is an information structure composed of identically structured records, which can be created, modified, and accessed individually…Each record of a database contains segments called fields. The set of all records sharing the same field structure is called a table. Databases structured as a single table are called flat file databases; those with multiple interlocking tables are relational databases.
+
+Some terminology that goes along with relational database systems (sometimes called RDBMS, for relational database management system).
+
+An ***entity*** is any abstract item in a computer program that can be given a unique name. Entities often have attributes.
+
+An ***attribute*** is a quality of an abstract entity expressed as a generalized category (e.g., “color” as an attribute of flowers). Attributes have values that vary with particular instances of the abstract entity they describe (e.g., the color “red” of a particular flower). Such attribute/value pairs can take the form of fields in a database or metadata tags or variables attached to objects in computer programs.
 
 ## What is an ERD?
 
@@ -67,36 +211,15 @@ As described in Library Carpentry's [Introduction to SQL tutorial](https://libra
 81- ERDs have a specific vocabulary for describing database structure.
 
 82- In 1997, computer scientist Peter Chen outlined a natural language framework for building ER diagrams.
-<table>
- <tr>
-  <th>English grammar structure</th>
-  <th>ER structure</th>
- </tr>
- <tr>
-  <td>Common noun</td>
-  <td>Entity type</td>
- </tr>
- <tr>
-  <td>Proper noun</td>
-  <td>Entity</td>
- </tr>
- <tr>
-  <td>Transitive verb</td>
-  <td>Relationship type</td>
- </tr>
- <tr>
-  <td>Intransitive verb</td>
-  <td>Attribute type</td>
- </tr>
- <tr>
-  <td>Adjective</td>
-  <td>Attribute for entity</td>
- </tr>
- <tr>
-  <td>Adverb</td>
-  <td>Attribute for relationship</td>
- </tr>
-</table>
+
+English Grammar Structure | ERD Structure
+--- | ---
+Common noun | Entity type
+Proper noun | Entity
+Transitive verb | Relationship type
+Intransitive verb | Attribute type
+Adjective | Attribute for entity
+Adverb | Attribute for relationship
 
 <blockquote>Peter Pin-Shan Chen, "English, Chinese and ER Diagrams," Data & Knowledge Engineering 23 (1997), 5-16. https://doi.org/10.1016/S0169-023X(97)00017-7</blockquote>
 
@@ -131,11 +254,11 @@ As described in Library Carpentry's [Introduction to SQL tutorial](https://libra
 86- Types of cardinality:
 
 - One-to-one relationships
-  * For example each Grinnell student has a unique ID number.
+  * For example each Notre Dame student has a unique ID number.
 - One-to-many relationships
-  * A single Grinnell student registers for multiple courses.
+  * A single ND student registers for multiple courses.
 - Many-to-many relationships
-  * Multiple Grinnell students work with multiple faculty members, and multiple faculty members work with multiple students.
+  * Multiple ND students work with multiple faculty members, and multiple faculty members work with multiple students.
 
 87- The three main cardinal relationships are one-to-one, one-to-many, and many-many. A one-to-one example would be one student associated with one mailing address. A one-to-many example (or many-to-one, depending on the relationship direction): One student registers for multiple courses, but all those courses have a single line back to that one student. Many-to-many example: Students as a group are associated with multiple faculty members, and faculty members in turn are associated with multiple students.
 
@@ -187,216 +310,18 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 Visit StackOverflow's [What is the different between ER Diagram and Database Schema?](https://stackoverflow.com/questions/17641134/what-is-different-between-er-diagram-and-database-schema) page to learn more.
 
-# SQL Query Syntax
+# Project prompts
 
-As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "Structured Query Language, or SQL (sometimes pronounced 'sequel'), is a powerful language used to interrogate and manipulate relational databases. It is not a general programming language that you can use to write an entire program."
+Take an existing dataset and reverse engineer a data model
 
-When working in a relational database, we an use SQL to write queries.
+Describe a hypothetical situation in which you would be using/implementing a relational database
 
-As described in Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html), "a query is a question or request for data. For example, “How many journals does our library subscribe to?” When we query a database, we can ask the same question using a common language called Structured Query Language or SQL in what is called a statement. Some of the most useful queries - the ones we are introducing in this first section - are used to return results from a table that match specific criteria."
+Build an ERD and RS for that implementation/use case
 
-This section of the lab will introduce some basic elements of SQL syntax. 
-
-## Selecting and Sorting
-```SQL
-SELECT [field]
-FROM [table];
-```
-
-97- The `SELECT` query selects a specific field (column) from a specific table.
-
-98- The semicolon `;` is required at the end of every SQL query.
-
-99- Adding multiple columns after `SELECT` will return data from multiple columns.
-
-```SQL
-SELECT [field_1], [field_2], [field_3]
-FROM [table];
-```
-
-<blockquote>Q20: How would you write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
-
-100- We might want to write a query to return all the unique values in a particular field.
-
-101- For example, selecting the entire `country` field in the `Player_Birthplaces` table would return many duplicate values.
-
-```SQL
-SELECT DISTINCT [field]
-FROM [table];
-```
-
-102- `SELECT DISTINCT` returns a list of unique values.
-
-<blockquote>Q21: How would you write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table? What data does this query return?</blockquote>
-
-103- We might also want to sort the results returned by a query.
-
-```SQL
-SELECT *
-FROM [table]
-ORDER BY [field] ASC;
-```
-
-104- The `*` wildcard operator selects all the fields in a specific table.
-
-105- `ORDER BY` specifies a field to use in sorting the query results.
-
-106- `ASC` returns ascending results. `DESC` would return descending results.
-
-<blockquote>Q22: How would you write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order? What data does this query return?</blockquote>
-
-```SQL
-SELECT *
-FROM [table]
-ORDER BY [field_1] ASC, [field_2] DESC;
-```
-
-107- We can also sort on multiple fields.
-
-108- In the query above, the `ORDER BY` statement sorts `[field_1]` first (ascending) and then sorts `[field_2]` (descending).
-
-<blockquote>Q23: How would you write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?</blockquote>
-
-## Filtering
-
-109- Sometimes we may only want to return values that fall within a specific range or based on a particular set of conditions.
-
-```SQL
-SELECT *
-FROM [Player_Birthplaces]
-WHERE country='DO';
-```
-
-110- This query returns all columns from the `Player_Birthplaces` table where data in the `country` field is equal to `DO`.
-
-111- The data returned by this query includes all the records for players born in the Dominican Republic.
-
-112- We can also use operators to specify a range for the `WHERE` clause.
-
-```SQL
-SELECT *
-FROM [Player_Birthplaces]
-WHERE dob>1996;
-```
-
-113- This query returns all columns from `Player_Birthplaces` where data in the `dob` field is greater than `1996`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_42.png?raw=true" alt="Capture_2"  /></p>
-
-List of operators that can be used in a `WHERE` clause (from W3Schools [SQL Where Clause page](https://www.w3schools.com/sql/sql_where.asp)).
-
-114- SQL query syntax requires single quotes around text values. Numeric fields do not need single quotes.
-
-<blockquote>Q24: How would you write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M? What data does this query return?</blockquote>
-
-Learn more about operators at Beginner SQL's [Tutorial on SQL Comparison Keywords](https://beginner-sql-tutorial.com/sql-like-in-operators.htm).
-
-## Aggregating and Calculating
-
-We won't cover these functions in this lab, but SQL syntax includes functions that can group query results by particular fields and perform basic arithmetic functions on values in a database.
-
-To learn more, visit Library Carpentry's [Aggregating & calculating values page](https://librarycarpentry.org/lc-sql/04-aggregating-calculating/index.html) and W3Schools' [SQL Tutorial](https://www.w3schools.com/sql/default.asp) pages for specific aggregating and calculating functions.
-
-## Joins
-
-115- The process of building a relational database in which you identify primary and foreign keys and build relationships across  tables does not change the underlying data structure.
-
-116- We can accomplish this in SQL using `JOIN` functions.
-
-117- According to W3Schools'[SQL Joins page](https://www.w3schools.com/sql/sql_join.asp), "A JOIN clause is used to combine rows from two or more tables, based on a related column between them."
-
-```SQL
-SELECT *
-FROM [transactions]
-JOIN [player_birthplaces]
-ON transactions.player_ids = player_birthplaces.player_ids;
-```
-
-118- This query uses the `player_id` field to join the `Transactions` and `Player_Birthplaces` tables.
-
-119- The query returns all columns in the joined query.
-
-<blockquote>Q25: How would you write an SQL query that joins the Transactions and Team_Locations tables and returns all columns?  What data does this query return?</blockquote>
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_43.gif?raw=true" alt="Capture_2"  /></p>
-
-120- There are four main types of `JOIN` functions.
-- `(INNER) JOIN` returns matching records in both tables
-- `LEFT (OUTER) JOIN` returns all records from the left table and only matching records from the right table
-- `RIGHT (OUTER) JOIN` returns all records from the right table and only matching records from the left table
-- `FULL (OUTER) JOIN` returns all matching records from both the left and right tables
-
-Learn more about `JOIN` functions at W3Schools' [SQL Joins page](https://www.w3schools.com/sql/sql_join.asp).
-
-<blockquote>Q26: Where would you start in writing an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Iowa?</blockquote>
-
-<blockquote>Q27: How would you describe the affordances of relational databases to someone who hasn't been through this lab?</blockquote>
-
-<blockquote>Q28: What questions or thoughts do you have about building and interacting with relational databases?</blockquote>
-
-# Optional: Relational Databases in Excel Using PivotTables
-
-121- We can also work within Microsoft Excel to connect our three tables so we can utilize some of the features and functionality of a relational database from within Excel.
-
-122- Open the Excel workbook you created earlier in this lab.
-
-123- Load the `Transactions` file in a new sheet. 
-
-124- Now you should have three sheets in the same Excel workbook.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_33.png?raw=true" alt="Capture_2"  /></p>
-
-125- Under the `Data` menu area, select the `Relationships` option.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_34.png?raw=true" alt="Capture_2"  /></p>
-
-126- In the `Manage Relationships` window, select `New`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_35.png?raw=true" alt="Capture_2"  /></p>
-
-127- Use the relational schema you built in Q19 to create relationships across the three tables.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_36.png?raw=true" alt="Capture_2"  /></p>
-
-128- Once you've added relationships, close the `Manage Relationships` window.
-
-129- Save your workbook.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_37.png?raw=true" alt="Capture_2"  /></p>
-
-130- Select the `Manage Data Model` option under `Data`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_38.png?raw=true" alt="Capture_2"  /></p>
-
-131- You can select the `Diagram View` option to see the relational schema you have built in Excel.
-
-132- Close the Power Pivot window.
-
-133- Create a new blank sheet.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_39.png?raw=true" alt="Capture_2"  /></p>
-
-134- Select `PivotTable` under `Insert`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_40.png?raw=true" alt="Capture_2"  /></p>
-
-135- In the `Create PivotTable` window, select the option to `Use this workbook's Data Model` and select the `Existing Worksheet` for the PivotTable location.
-
-136- Click `OK`.
-
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_41.png?raw=true" alt="Capture_2"  /></p>
-
-137- You are now in the PivotTable interface where you can select data fields across tables using the relationships and data model.
-
-<blockquote>From within the PivotTable, how could you select data fields to answer our question about the number of baseball players born in Puerto Rico who played for teams in Iowa? Describe your process and include a screenshot of the resulting PivotTable.</blockquote>
 
 # Additional Resources
-
-- [W3 Schools "Syntax"](https://www.w3schools.com/sql/default.asp)
 - [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
-- [Library Carpentry "Tidy Data for Librarians"](https://librarycarpentry.org/lc-spreadsheets/)
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
-- [Library Carpentry "Open Refine"](https://librarycarpentry.org/lc-open-refine/)
 - [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 - [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
 - [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
@@ -440,22 +365,3 @@ Q17: Work with a colleague to build an ERD for the Player_Birthplaces, Team_Loca
 Q18: What fields in our tables are functioning as keys? Which ones are primary keys and which ones are foreign keys? Include some explanation of your thought process.
 
 Q19: Work with a colleague to build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
-
-Q20: How would you write an SQL query to select the list of player ids and birthplace countries from the Player_Birthplaces table? What data does this query return?
-
-Q21: How would you write an SQL query to return the unique list of player birthplace countries from the Player_Birthplaces table? What data does this query return?
- 
-Q22: How would you write an SQL query to return the unique list of team names from the Team_Locations table, sorted in reverse alphabetical order? What data does this query return?
-  
-Q23: How would you write an SQL query to return the data from the Player_Birthplaces table, sorted in chronological order by birth year and reverse alphabetical order by country? What data does this query return?
-   
-Q24: How would you write an SQL query to return the data from the Team_Locations table for teams located in states that start with the letter M? What data does this query return?
-   
-Q25: How would you write an SQL query that joins the Transactions and Team_Locations tables and returns all columns? What data does this query return?
-    
-Q26: Where would you start in writing an SQL query that answers our question about the number of players born in Puerto Rico playing for teams located in Iowa?
-
-Q27: How would you describe the affordances of relational databases to someone who hasn't been through this lab?
-
-Q28: What questions or thoughts do you have about building and interacting with relational databases?
-
