@@ -296,9 +296,9 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 <blockquote>Q18: What fields in our tables are functioning as keys? Which ones are primary keys and which ones are foreign keys? Include some explanation of your thought process.</blockquote>
 
-## Relational Schema
+# Relational Schema
 
-94- ER Diagrams represent the conceptual relationships in a relational database structure.
+94- ERDs represent the conceptual relationships in a relational database structure.
 
 95- But, we might also want to represent our database structure based on tables, primary keys, and foreign keys.
 
