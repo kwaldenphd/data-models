@@ -14,8 +14,12 @@ The author consulted the following resources when building this tutorial:
 
 # Table of Contents
 
+- [Data](#data)
 - [Understanding Relational Databases](#understanding-relational-databases)
-  * [Why A Database?](#why-a-database)
+  * [From table to database](#from-table-to-database)
+  * [Why do we need relational dabases?](#why-do-we-need-relational-databases)
+  * [What is as relational database?](#what-is-a-relational-database)
+    * [Database Terminology](#database-terminology)
   * [What is an ERD?](#what-is-an-erd)
     * [Entities](#entities)
     * [Attributes](#attributes)
@@ -281,7 +285,7 @@ Adverb | Attribute for relationship
 
 58. You can draw these by hand, use a drawing tool, or use a free online ERD tool like [ERDPlus](https://erdplus.com/) or [LucidChart](https://www.lucidchart.com).
 
-## Where Are My Keys?
+### Where Are My Keys?
 
 59. By this point you may be wondering why our data tables have various `id` columns. 
 
@@ -301,7 +305,7 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 <blockquote>Q7: What fields in our tables are functioning as keys? Which ones are primary keys and which ones are foreign keys? Include some explanation of your thought process.</blockquote>
 
-# Relational Schema
+### Relational Schema
 
 65. ERDs represent the conceptual relationships in a relational database structure.
 
