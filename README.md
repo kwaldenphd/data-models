@@ -48,7 +48,7 @@ They can be downloaded as a `zip` folder in this GitHub repo.
 
 1. In *Inventing the Medium*, Janet Murray describes a table as "one of the basic building blocks of information design, an extension of the list through spatialization and the bases for database design."
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_1.png?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true" /></a></p>
 
 2. In tabular data structures, columns headers describe the data contained in corresponding columns, or fields. 
 
@@ -85,9 +85,9 @@ Term | Definition
 
 12. Let's take a look at the [individual player page on Baseball Reference](https://www.baseball-reference.com/players/s/samarje01.shtml) for former Notre Dame baseball and football player Jeff Samardzija.
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_2.png?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_2.png?raw=true" /></a></p>
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_3.png?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_3.png?raw=true" /></a></p>
 
 13. We can get some pieces of information from this page, like player birthplace and teams played for.
 
@@ -99,9 +99,9 @@ Term | Definition
 
 17. Let's take a look at the [2019 season team page](https://www.baseball-reference.com/register/team.cgi?id=a87c825c) for the South Bend Cubs.
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_4.png?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_4.png?raw=true" /></a></p>
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/Figures/Figure_5.png?raw=true" /></a></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_5.png?raw=true" /></a></p>
 
 18. We can get some pieces of information from this page, like the team location and roster.
 
@@ -187,7 +187,7 @@ Double | Used to store precise numerical values that include decimal points | 3.
 
 ## What is a relational database?
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_29.png?raw=true" alt="Capture_2"  /></p>
+<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Image_1.png?raw=true" alt="Capture_2"  /></p>
 
 Image from Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html).
 
