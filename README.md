@@ -50,6 +50,8 @@ They can be downloaded as a `zip` folder in this GitHub repo.
 
 <p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true" /></a></p>
 
+Image from Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html).
+
 2. In tabular data structures, columns headers describe the data contained in corresponding columns, or fields. 
 
 3. Each row contains as record with data in separate column cells, or fields.
@@ -187,7 +189,7 @@ Double | Used to store precise numerical values that include decimal points | 3.
 
 ## What is a relational database?
 
-<p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Image_1.png?raw=true" alt="Capture_2"  /></p>
+<p align="center"><a href="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-models/blob/main/figures/Figure_1.png?raw=true" /></a></p>
 
 Image from Library Carpentry's [Introduction to SQL tutorial](https://librarycarpentry.org/lc-sql/01-introduction/index.html).
 
