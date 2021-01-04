@@ -5,6 +5,14 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Lab Goals
 
+This lab provides an overview of relational database data models. It covers core RDBMS syntax and provides a case-study based approach to demonstrate the utility of relational databases. It introduces students to the concept and components of an ERD, including entities, attributes, relationships, cardinality, and keys. It gives students hand-on experience building data models. It also covers relational schema.
+
+By the end of this lab, students will be able to:
+- Understand the relational databases' core concepts and terminology
+- Understand and articulate the utility of relational databases
+- Describe the core components of an entity-relationship diagram 
+- Construct ER and RS diagrams
+
 ## Acknowledgements
 
 The author consulted the following resources when building this tutorial:
