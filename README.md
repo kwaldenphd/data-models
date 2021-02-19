@@ -1,4 +1,4 @@
-# Introduction to Relational Database Systems and Data Models
+#Introduction to Relational Database Systems and Data Models
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -26,7 +26,7 @@ The author consulted the following resources when building this tutorial:
 - [Understanding Relational Databases](#understanding-relational-databases)
   * [From table to database](#from-table-to-database)
   * [Why do we need relational dabases?](#why-do-we-need-relational-databases)
-  * [What is as relational database?](#what-is-a-relational-database)
+  * [What is a relational database?](#what-is-a-relational-database)
     * [Database Terminology](#database-terminology)
   * [What is an ERD?](#what-is-an-erd)
     * [Entities](#entities)
@@ -72,7 +72,7 @@ Image from Library Carpentry's [Introduction to SQL tutorial](https://librarycar
 
 Term | Definition
 --- | ---
-**Data** | Any collection of symbolic units, often quantitative, collected or presented for the purpose of analysis. Data become most useful when structured by semantic segmentation into labeled units
+**Data** | Any collection of symbolic units, often quantitative, collected or presented for the purpose of analysis. Data becomes most useful when structured by semantic segmentation into labeled units
 **Record** | An entry in a database representing a single item, made up of discrete fields
 **Fields** | In a database, a field is a segment of a record with a fixed length and data type that corresponds to a single semantic unit, like a name or address
 **Table** | One of the basic building blocks of information design
@@ -83,7 +83,7 @@ Term | Definition
 
 ## Why do we need relational databases?
 
-7. Let's imagine we want to know how many professional baseball players born in Puerto Rico played for teams located in the state of Iowa during the 2016 season.
+7. Let's imagine we want to know how many professional baseball players that were born in Puerto Rico played for teams located in the state of Iowa during the 2016 season.
 
 8. Our first step is to break down the different components of this research question, with an eye toward what data we would need to answer this question.
 - We would need to have a list of people who played professional baseball during the 2016 season.
@@ -271,7 +271,7 @@ Adverb | Attribute for relationship
 54. Types of cardinality:
 
 - One-to-one relationships
-  * For example each Notre Dame student has a unique ID number.
+  * For example, each Notre Dame student has a unique ID number.
 - One-to-many relationships
   * A single ND student registers for multiple courses.
 - Many-to-many relationships
