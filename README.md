@@ -336,6 +336,8 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 # Project Prompts
 
+Choose one of the two options.
+
 ## Project #1
 
 Take an existing dataset and reverse engineer a data model. Include narrative or text that documents your thought process as well as an ERD.
