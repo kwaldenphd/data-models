@@ -102,7 +102,7 @@ Term | Definition
 
 ## Why do we need relational databases?
 
-7. Let's imagine we want to know how many professional baseball players that were born in Puerto Rico played for teams located in the state of Iowa during the 2016 season.
+7. Let's imagine we want to know how many professional baseball players that were born in Puerto Rico played for teams located in the state of Indiana during the 2016 season.
 
 8. Our first step is to break down the different components of this research question, with an eye toward what data we would need to answer this question.
 - We would need to have a list of people who played professional baseball during the 2016 season.
