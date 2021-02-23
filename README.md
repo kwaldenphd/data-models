@@ -1,4 +1,4 @@
-#Introduction to Relational Database Systems and Data Models
+# Introduction to Relational Database Systems and Data Models
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -12,6 +12,15 @@ By the end of this lab, students will be able to:
 - Understand and articulate the utility of relational databases
 - Describe the core components of an entity-relationship diagram 
 - Construct ER and RS diagrams
+
+This lab covers the basics of getting started with SQLite using DB Browser for SQLite. It provides an overview for SQLite and explains the core components of the DB Browser GUI interface. It uses a case-study approach to show how to build a relational database from CSV files in DB Browser, including setting keys and building table relationships.
+
+By the end of this lab, students will be able to:
+- Understand the core components of SQL and the DB Browser for SQLite
+- Have a working installation of DB Browser for SQLite on their personal computer
+- Understand how to load structured data into DB Browser
+- Understand how to set data types and key fields in DB Browser 
+- Understand how to export from DB Browser
 
 ## Acknowledgements
 
@@ -37,7 +46,17 @@ The author consulted the following resources when building this tutorial:
     * [Where Are My Keys?](#where-are-my-keys)
     * [Relational Schema](#relational-schema)
 - [Additional Resources](#additional-resources)
-- [Project Prompts](#project-prompts)
+- [What is SQLite](#what-is-sqlite)
+- [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
+- [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
+  * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
+  * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
+- - [What is SQLite](#what-is-sqlite)
+- [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
+- [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
+  * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
+  * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
+- [Project Prompts](#data-model-project-prompts)
   * [Project #1](#project-1)
   * [Project #2](#project-2)
 - [Lab Notebook Questions](#lab-notebook-questions)
@@ -334,6 +353,174 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 - [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
 - [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
 
+# What is SQLite
+
+68. SQL stands for Structured Query Language. 
+
+69. SQL "is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS)...It is particularly useful in handling structured data, i.e. data incorporating relations among entities and variables" ([Wikipedia, "SQL"](https://en.wikipedia.org/wiki/SQL)).
+
+70. SQL was developed by IBM in the early 1970s.
+
+4. Relational Software, Inc. (now Oracle Corporation) released the first commercial implementations of SQL in the late 1970s.
+
+5. The American National Standards Institute (ANSI) and the International Organization for Standardization (ISO) adopted SQL as the official database query language in 1986.
+
+71. SQL is maintained by the ISO and is updated semi-regularly (typically every three years).
+- [Link to official SQL documentation](https://standards.iso.org/ittf/PubliclyAvailableStandards/index.html)
+
+72. For more on SQL history:
+- Codd, Edgar F. (June 1970). "A Relational Model of Data for Large Shared Data Banks". *Communications of the ACM.* 13 (6): 377–87. https://doi.org/10.1145%2F362384.362685
+- Chamberlin, Donald (2012). "Early History of SQL". *IEEE Annals of the History of Computing.* 34 (4): 78–82. https://doi.org/10.1109%2FMAHC.2012.61
+- Chamberlin, Donald D; Boyce, Raymond F (1974). "SEQUEL: A Structured English Query Language." *Proceedings of the 1974 ACM SIGFIDET Workshop on Data Description, Access and Control. Association for Computing Machinery*: 249–64. https://doi.org/10.1145/800296.811515
+
+73. We'll be using an implementation of SQL known as SQLite.
+
+74. "SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day" ([SQLite, "What Is SQLite?"](https://www.sqlite.org/index.html)).
+
+75. SQLite drives many commonly used programs and applications, including:
+- Chrome, Firefox, and Safari web browsers
+- Django
+- Drupal
+- Ruby on Rails
+- Adobe Systems
+- Evernote
+- Skype
+- iPhone text messages
+
+76. Taking a quick look at SQLite's [Download](https://www.sqlite.org/download.html) and [Documentation](https://www.sqlite.org/docs.html) pages would suggest setting up a full implementation of STLite in your local computer environment is a tall order.
+- *All hail the work of compilers*
+
+77. So we're going to use a graphical-user interface (GUI) browser application that runs on top of SQLite.
+
+78. [Database Browser for SQLite (DB Browser)](https://sqlitebrowser.org/) is an open-source application that provides a graphical user interface for connecting to and interacting with a SQLite database. 
+
+79. The DB Browser application bundles SQLite, so you won’t need to install SQLite separately.
+
+# Installing DB Browser for SQLite
+
+80. Navigate to https://sqlitebrowser.org/ in a web browser.
+
+81. Select the download version for your operating system:
+- Windows: OOP Coders, ["Install DB Browser SQLite and create database"](https://youtu.be/CDen1TavGQ8) *YouTube* (2 September 2020)
+- Mac: Cool IT Help, ["Sqlite Browser Installation on Mac OS"](https://youtu.be/SkXxnasbrFY) *YouTube* (3 October 2019)
+- Google Chromebook: Follow the instructions for the Debian varation of Linux. 
+  * See also: Dave McKay, ["How to Use DB Browser for SQLite on Linux"](https://www.howtogeek.com/704243/how-to-use-db-browser-for-sqlite-on-linux/), *How-To Geek* (16 September 2020)
+
+82. Follow the installation instructions.
+
+83. Once the installation is complete, launch the program.
+
+<blockquote>Q9: Describe your experience installing DB Browser for SQLite based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?</blockquote>
+
+# Getting started with DB Browser for SQLite
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_1.png?raw=true" /></a></p>
+
+84. You should now be seeing the GUI (graphical user interface) window for the DB Browser application.
+
+85. We're going to create a relational database using the `.csv` files from the first part of this lab.
+
+86. Click the "New Database" icon in the top-left hand menu bar, or select "New Database" under "Files."
+
+87. Save this database with a `.sql` file extension in a dedicated location on your computer.
+
+## Importing tables from `.csv` files
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_2.png?raw=true" /></a></p>
+
+88. Add each of the `.csv` files by going to "Import table from CSV" under "Import" under "Files."
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_3.png?raw=true" /></a></p>
+
+89. Modify the table name if needed.
+
+90. Make sure the "Column names in first line" box is checked.
+
+91. Make sure comma is set as "Field separator," double quotation is set as "Quote character," and UTF-8 is set as "Encoding."
+
+92. Click "OK" to import the table from the `.csv` file.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_5.png?raw=true" /></a></p>
+
+93. Click on the "SQL Log" button on the bottom right-hand corner of the window to see the SQL commands used to import this data.
+
+94. These SQL commands are the programmatic expression of the steps we are taking using the graphical user interface.
+
+95. Once we've done this for all of our `.csv` tables, our data should now be loaded into SQLite.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_4.png?raw=true" /></a></p>
+
+96. Click on the "Browse Data" tab to explore the data in each table (and make sure data imported correctly).
+
+<blockquote>Q10: Describe yoru experience loading `.csv` files into DB Browser based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?</blockquote>
+
+## Setting Keys and Building Table Relationships
+
+97. Now we need to set data types and identify our keys.
+- Go back to [the first part of this lab](https://github.com/kwaldenphd/data-models) if you're fuzzy on keys
+
+98. Select the `Team_Locations` table and click on "Modify Table" icon. PC users can right-click on the selected table to see the "Modify Table" option.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_6.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_6.png?raw=true" /></a></p>
+
+99. Check the "Type" for each field and change as needed.
+
+100. For fields that do not have null values, check `NN.`
+
+101. For fields that have unique values, check `U`.
+
+102. We also want to make sure we check `PK` for this table's primary key field.
+
+103. The bottom half of the "Edit table definition" window shows these steps in SQL syntax.
+- Scroll down to the bottom of this embedded window if needed.
+
+104. Click "OK" to apply these changes.
+
+105. Go through the same process for the `Player_DoB` table.
+- Check data types
+- Mark not null values
+- Mark unique values
+- Set primary key
+
+106. We'll go through a similar process for the `Combined_Transactions` table, but remember this table does not include a primary key--it has two foreign keys.
+- *player_id or id_person*
+- *team_id*
+
+107. Before we can set the foreign keys, we have to change a foreign key constraint within the DB Browser application.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_4.png?raw=true" /></a></p>
+
+108. Select the "Edit Pragmas" tab.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_7.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_7.png?raw=true" /></a></p>
+
+109. Uncheck the box next to "Foreign Keys."
+
+110. Click "Save."
+
+111. Now we can modify the `Combined_Transactions` table and set our foreign key fields.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_8.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_8.png?raw=true" /></a></p>
+
+112. You will need to extend or widen the "Edit table definition" window to see the "Foreign Key" option.
+
+<p align="center"><a href="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_9.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/sqlite-intro/blob/main/screenshots/Figure_9.png?raw=true" /></a></p>
+
+113. Select the first foreign key field (`id_person`) and double click the blank space under "Foreign Key."
+
+114. You should see the option to specify a primary key reference table and field for the foreign key.
+
+115. Go through the same process for the other foreign key field, `team_id`.
+
+116. Remember the bottom half of the "Edit table definition" window shows these steps in SQL syntax.
+- Scroll down to the bottom of this embedded window if needed.
+
+117. Huzzah! The ERD and relational schema we built in the first part of this lab exist in our newly-created database.
+
+118. Save all of these changes and close the program. We will use this newly-created database in an upcoming lab.
+
+<blockquote>Q11: Describe your experience setting key fields and building table relationships to form a relational database in DB Browser, based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?</blockquote>
+
 # Project Prompts
 
 Choose one of the two options.
@@ -366,4 +553,10 @@ Q6: Work with a colleague to build an ERD for the Player_Birthplaces, Team_Locat
 
 Q7: What fields in our tables are functioning as keys? Which ones are primary keys and which ones are foreign keys? Include some explanation of your thought process.
 
-Q8: Work with a colleague to build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process
+Q8: Work with a colleague to build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+
+Q9: Describe your experience installing DB Browser for SQLite based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?
+
+Q10: Describe yoru experience loading `.csv` files into DB Browser based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?
+
+Q11: Describe your experience setting key fields and building table relationships to form a relational database in DB Browser, based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems? 
