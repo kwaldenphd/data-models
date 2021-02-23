@@ -539,6 +539,8 @@ Include narrative or text that documents your thought process as well as ERD and
 
 # Lab Notebook Questions
 
+(Answer these in a Word Document / Pages / Google Doc.)
+
 Q1: Explore the tables. What fields do you see? How would you describe these fields, using the language of string, double, and integer to describe the data types?
 
 Q2: What entities are in the Player_Birthplaces, Team_Locations, and Transactions tables? List the entitites by table and include some explanation of your thought process. If you're getting stuck, try describing the data included in each table using a sentence. Where are the nouns in each sentence?
