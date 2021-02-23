@@ -56,7 +56,7 @@ The author consulted the following resources when building this tutorial:
 - [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
   * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
   * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
-- [Project Prompts](#data-model-project-prompts)
+- [Project Prompts](#project-prompts)
   * [Project #1](#project-1)
   * [Project #2](#project-2)
 - [Lab Notebook Questions](#lab-notebook-questions)
