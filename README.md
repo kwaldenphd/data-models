@@ -78,6 +78,8 @@ The following data files are used in this tutorial, with Google Drive links (ND 
 
 NOTE: There is also a [`geography` table](https://drive.google.com/file/d/1y4VRl1Ye8_uMLxGmpAGlL-5eEU3qQ5PH/view?usp=sharing) included in the `Combined_Workbook` file. You can ignore it for the purposes of this lab.
 
+You can also download the four files in a compressed folder (`.zip`): [Google Drive link, ND users](https://drive.google.com/file/d/1KMJ35drSMj8shlw0zG1KIGqt9nXknyk3/view?usp=sharing)
+
 # Tools
 
 Part of what we'll be doing in this lab involves building a couple of specific types of diagrams: entity-relationship diagrams (ERDs) and relational schema (RS)
