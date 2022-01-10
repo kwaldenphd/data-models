@@ -15,7 +15,7 @@ By the end of this section, students will be able to:
 
 The second part of this lab covers the basics of getting started with SQLite using DB Browser for SQLite. It provides an overview for SQLite and explains the core components of the DB Browser GUI interface. It uses a case-study approach to show how to build a relational database from CSV files in DB Browser, including setting keys and building table relationships.
 
-By the end of this section, students will be able to:
+By the end of thWorkboois section, students will be able to:
 - Understand the core components of SQL and the DB Browser for SQLite
 - Have a working installation of DB Browser for SQLite on their personal computer
 - Understand how to load structured data into DB Browser
@@ -65,16 +65,18 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 
 # Lab Notebook Template
 
+[Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1hlcv_xovvtM9aSYEkyIlnmE71jnrqQ5b4WKazr4gYog/copy)
+- Insert any needed ERDs or relational schema as images in the Google Doc.
 
 # Data
 
-The following data files are used in this tutorial:
-- `Database_Lab_Data.xlsx`
-- `Player_Birthplaces.csv`
-- `Team_Locations.csv`
-- `Combined_Transactions.csv`
+The following data files are used in this tutorial, with Google Drive links (ND users only) provided below:
+- [`Combined_Workbook.xlsx`](https://docs.google.com/spreadsheets/d/1uan6i77n9mz62arr8wh-l2hICZ6JmYf2wWK_okDtiLw/edit?usp=sharing)
+- [`Player_Birthplaces.csv`](https://drive.google.com/file/d/1qthm3HSN5FaEFusC1_Zk-0qL0A6LIEB-/view?usp=sharing)
+- [`Team_Locations.csv`](https://drive.google.com/file/d/1fttQhzoAwYOJC-mB17RATaqD4mfUTIV_/view?usp=sharing)
+- [`Combined_Transactions.csv`](https://drive.google.com/file/d/17Z9C7snAMjARTQYoRXufwaO2j9ssl0g8/view?usp=sharing)
 
-[Link to access via Google Drive link (ND users only)](https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing)\
+NOTE: There is also a [`geography` table](https://drive.google.com/file/d/1y4VRl1Ye8_uMLxGmpAGlL-5eEU3qQ5PH/view?usp=sharing) included in the `Combined_Workbook` file. You can ignore it for the purposes of this lab.
 
 # Tools
 
@@ -606,7 +608,7 @@ Describe a hypothetical situation in which you would be using/implementing a rel
 
 # Lab Notebook Questions
 
-[Link to lab notebook template (Google Doc)]()
+[Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1hlcv_xovvtM9aSYEkyIlnmE71jnrqQ5b4WKazr4gYog/copy)
 - Insert any needed ERDs or relational schema as images in the Google Doc.
 
 Free tools you can use to create ERDs and relational schema:
