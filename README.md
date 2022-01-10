@@ -67,6 +67,7 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 
 [Link to lab notebook template (Google Doc)](https://docs.google.com/document/d/1hlcv_xovvtM9aSYEkyIlnmE71jnrqQ5b4WKazr4gYog/copy)
 - Insert any needed ERDs or relational schema as images in the Google Doc.
+  * [Tutorial for adding images/tables/drawings to a Google Doc](https://www.techrepublic.com/article/how-to-add-images-tables-and-drawings-to-a-google-doc-file/)
 
 # Data
 
