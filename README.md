@@ -15,7 +15,7 @@ By the end of this section, students will be able to:
 
 The second part of this lab covers the basics of getting started with SQLite using DB Browser for SQLite. It provides an overview for SQLite and explains the core components of the DB Browser GUI interface. It uses a case-study approach to show how to build a relational database from CSV files in DB Browser, including setting keys and building table relationships.
 
-By the end of thWorkboois section, students will be able to:
+By the end of this section, students will be able to:
 - Understand the core components of SQL and the DB Browser for SQLite
 - Have a working installation of DB Browser for SQLite on their personal computer
 - Understand how to load structured data into DB Browser
