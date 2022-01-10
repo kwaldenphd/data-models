@@ -5,17 +5,17 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Lab Goals
 
-This lab provides an overview of relational database data models. It covers core RDBMS syntax and provides a case-study based approach to demonstrate the utility of relational databases. It introduces students to the concept and components of an ERD, including entities, attributes, relationships, cardinality, and keys. It gives students hand-on experience building data models. It also covers relational schema.
+The first part of this lab provides an overview of relational database data models. It covers core RDBMS syntax and provides a case-study based approach to demonstrate the utility of relational databases. It introduces students to the concept and components of an ERD, including entities, attributes, relationships, cardinality, and keys. It gives students hand-on experience building data models. It also covers relational schema.
 
-By the end of this lab, students will be able to:
+By the end of this section, students will be able to:
 - Understand the relational databases' core concepts and terminology
 - Understand and articulate the utility of relational databases
 - Describe the core components of an entity-relationship diagram 
 - Construct ER and RS diagrams
 
-This lab covers the basics of getting started with SQLite using DB Browser for SQLite. It provides an overview for SQLite and explains the core components of the DB Browser GUI interface. It uses a case-study approach to show how to build a relational database from CSV files in DB Browser, including setting keys and building table relationships.
+The second part of this lab covers the basics of getting started with SQLite using DB Browser for SQLite. It provides an overview for SQLite and explains the core components of the DB Browser GUI interface. It uses a case-study approach to show how to build a relational database from CSV files in DB Browser, including setting keys and building table relationships.
 
-By the end of this lab, students will be able to:
+By the end of this section, students will be able to:
 - Understand the core components of SQL and the DB Browser for SQLite
 - Have a working installation of DB Browser for SQLite on their personal computer
 - Understand how to load structured data into DB Browser
@@ -33,7 +33,9 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 
 # Table of Contents
 
+- [Lab notebook template](#lab-notebook-template)
 - [Data](#data)
+- [Tools](#tools)
 - [Understanding Relational Databases](#understanding-relational-databases)
   * [From table to database](#from-table-to-database)
   * [Why do we need relational dabases?](#why-do-we-need-relational-databases)
@@ -47,7 +49,7 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
   * [Building an ERD](#building-an-erd)
     * [Where Are My Keys?](#where-are-my-keys)
     * [Relational Schema](#relational-schema)
-- [Additional Resources](#additional-resources)
+  * [Additional Resources](#additional-resources)
 - [What is SQLite](#what-is-sqlite)
 - [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
 - [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
@@ -58,10 +60,11 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 - [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
   * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
   * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
-- [Project Prompts](#project-prompts)
-  * [Project #1](#project-1)
-  * [Project #2](#project-2)
+- [Additional Lab Notebook Questions](#additional-lab-notebook-questions)
 - [Lab Notebook Questions](#lab-notebook-questions)
+
+# Lab Notebook Template
+
 
 # Data
 
@@ -71,9 +74,23 @@ The following data files are used in this tutorial:
 - `Team_Locations.csv`
 - `Combined_Transactions.csv`
 
-They can be downloaded as a `zip` folder in this GitHub repo.
+[Link to access via Google Drive link (ND users only)](https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing)\
 
-[Link to access via Google Drive link (ND users only)](https://drive.google.com/drive/folders/1uzjZt4fxTa7qmAIfeTyKNtzT94rhZrf8?usp=sharing)
+# Tools
+
+Part of what we'll be doing in this lab involves building a couple of specific types of diagrams: entity-relationship diagrams (ERDs) and relational schema (RS)
+
+You're welcome to draw these by hand, but there are free online and downloadable tools you can use to generate these diagrams.
+
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
 
 # Understanding Relational Databases
 
@@ -209,7 +226,6 @@ Double | Used to store precise numerical values that include decimal points | 3.
 - [Wikipedia list of baseball team abbreviations](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Baseball/Team_abbreviations)
 - [Wikipedia glossary of baseball jargon](https://en.wiktionary.org/wiki/Appendix:Glossary_of_baseball)
 
-
 33. So now that we have some structured data, let's return to our original research question.
 
 34. The `Player_Birthplaces` table includes information about where players were born. The `Team_Locations` table includes information about where teams are located. The `Transactions` table tells us which players played for which teams.
@@ -310,9 +326,21 @@ Adverb | Attribute for relationship
 
 ## Building an ERD
 
-<blockquote>Q6: Work with a colleague to build an ERD for the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.</blockquote>
+<blockquote>Q6: Build an ERD for the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+<ul><li>Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.</li></ul></blockquote>
 
-58. You can draw these by hand, use a drawing tool, or use a free online ERD tool like [ERDPlus](https://erdplus.com/) or [LucidChart](https://www.lucidchart.com).
+58. You can draw these by hand or use a drawing tool.
+
+Free tools you can use to create ERDs:
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
 
 ### Where Are My Keys?
 
@@ -344,14 +372,37 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_c.png?raw=true" alt="Capture_2"  /></p>
 
-<blockquote>Q8: Work with a colleague to build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.</blockquote>
+<blockquote>Q8: Build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+<ul><li>Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.</li></ul></blockquote>
+
+Free tools you can use to create ERDs and relational schema:
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
 
 68. Visit StackOverflow's [What is the different between ER Diagram and Database Schema?](https://stackoverflow.com/questions/17641134/what-is-different-between-er-diagram-and-database-schema) page to learn more.
 
-# Additional Resources
-- [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
+## Additional Data Model Resources
+
+Free tools you can use to create ERDs and relational schema:
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
+
+To learn more about database design, ERDs, and relational schema:
 - [Library Carpentry "Database Design"](https://librarycarpentry.org/lc-sql/08-database-design/index.html)
-- [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 - [Lucid Chart "Database Design"](https://www.lucidchart.com/pages/database-diagram/database-design)
 - [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
 
@@ -523,25 +574,51 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 <blockquote>Q11: Describe your experience setting key fields and building table relationships to form a relational database in DB Browser, based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?</blockquote>
 
-# Project Prompts
+## Additional SQL Resources
 
-Choose one of the two options.
+We'll spend more time with SQL in an upcoming lab, but if you want to explore:
+- [Lab procedure](https://github.com/kwaldenphd/sql-queries-joins)
+- [W3 Schools "SQL Syntax"](https://www.w3schools.com/sql/sql_syntax.asp)
+- [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 
-## Project #1
+# Additional Lab Notebook Questions
+
+There are two options for the additional lab notebook questions. Though you are welcome to do both, **<ins>you are only required to complete one</ins>.**
+
+Free tools you can use to create ERDs and relational schema:
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
+
+## Question 12
 
 Take an existing dataset and reverse engineer a data model. Include narrative or text that documents your thought process as well as an ERD.
 
-## Project #2
+## Question 13
 
-Describe a hypothetical situation in which you would be using/implementing a relational database.
-
-Build an ERD and RS for that implementation/use case.
-
-Include narrative or text that documents your thought process as well as ERD and RS diagrams.
+Describe a hypothetical situation in which you would be using/implementing a relational database. Build an ERD and RS for that implementation/use case. Include narrative or text that documents your thought process as well as ERD and RS diagrams.
 
 # Lab Notebook Questions
 
-(Answer these in a Word Document / Pages / Google Doc.)
+[Link to lab notebook template (Google Doc)]()
+- Insert any needed ERDs or relational schema as images in the Google Doc.
+
+Free tools you can use to create ERDs and relational schema:
+- Free generic drawing tools:
+  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
+  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
+  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
+- Free online database-specific tools:
+  - [ERDPlus](https://erdplus.com/)
+    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
+  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
+  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
 
 Q1: Explore the tables. What fields do you see? How would you describe these fields, using the language of string, double, and integer to describe the data types?
 
@@ -553,14 +630,24 @@ Q4: What relationships do you see within and across entities in the Player_Birth
 
 Q5: Include the cardinality for the relationships you identified in Q4. Include some explanation of your thought process.
 
-Q6: Work with a colleague to build an ERD for the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+Q6: Build an ERD for the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process
+- *Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.*
 
 Q7: What fields in our tables are functioning as keys? Which ones are primary keys and which ones are foreign keys? Include some explanation of your thought process.
 
-Q8: Work with a colleague to build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+Q8: Build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
+- *Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.*
 
 Q9: Describe your experience installing DB Browser for SQLite based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?
 
-Q10: Describe yoru experience loading `.csv` files into DB Browser based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?
+Q10: Describe your experience loading `.csv` files into DB Browser based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems?
 
 Q11: Describe your experience setting key fields and building table relationships to form a relational database in DB Browser, based on the provided instructions and available documentation. What challenges did you encounter, and how did you solve those problems? 
+
+**Q12 and Q13: Though you are welcome to do both, <ins>you are only required to complete one</ins>.**
+
+Q12: Take an existing dataset and reverse engineer a data model. Include narrative or text that documents your thought process as well as an ERD.
+
+Q13: Describe a hypothetical situation in which you would be using/implementing a relational database.
+- Build an ERD and RS for that implementation/use case.
+- Include narrative or text that documents your thought process as well as ERD and RS diagrams.
