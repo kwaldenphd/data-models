@@ -353,6 +353,11 @@ Free tools you can use to create ERDs:
 
 60. The ERD we built in Q6 outlines the conceptual relationships across our data structures.
 
+ERDs are a conceptual model of a relational database structure.
+
+Relational schema model the logical, machine-readable relationship across  tables and fields (linked by primary/foreign keys)
+
+
 61. But relationship database programs require matching data fields and unique identifiers to be able to manifest those conceptual relationships.
 
 62. These unique identifiers and matching fields are called keys.
@@ -369,29 +374,20 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 ### Relational Schema
 
-65. ERDs represent the conceptual relationships in a relational database structure.
+65. ERDs are a conceptual model of the relationships in a database. An ERD may not directly map onto the structure of tables, fields, etc. in a relational database.
 
-66. But, we might also want to represent our database structure based on tables, primary keys, and foreign keys.
+66. But, we might also want to represent our database structure based on tables, primary keys, and foreign keys. Relational schema (RS) model the logical, machine-readable relationship across tables and fields (linked by primary/foreign keys)
 
-67. An image from StackExchange's [ER vs database schema diagrams page](https://dba.stackexchange.com/questions/119380/er-vs-database-schema-diagrams) that illustrates the difference:
+67. Building a RS diagram involves listing fields by table, identifying relationships across tables, and which fields are serving as primary/foreign keys.
+
+An image from StackExchange's [ER vs database schema diagrams page](https://dba.stackexchange.com/questions/119380/er-vs-database-schema-diagrams) that illustrates the difference:
 
 <p align="center"><img class=" size-full wp-image-55 aligncenter" src="https://github.com/kwaldenphd/databases/blob/master/screenshots/Image_c.png?raw=true" alt="Capture_2"  /></p>
 
+Visit StackOverflow's [What is the different between ER Diagram and Database Schema?](https://stackoverflow.com/questions/17641134/what-is-different-between-er-diagram-and-database-schema) page to learn more.
+
 <blockquote>Q8: Build a relational schema for a relational database that includes the Player_Birthplaces, Team_Locations, and Transactions tables. Include your diagram as well as an explanation of your process.
 <ul><li>Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.</li></ul></blockquote>
-
-Free tools you can use to create ERDs and relational schema:
-- Free generic drawing tools:
-  - [Google Drawings](https://docs.google.com/drawings) *Google Drive tool*
-  - [Microsoft Paint](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99) *Windows users*
-  - [MacOS Paintbrush](https://paintbrush.sourceforge.io/) *Mac users*
-- Free online database-specific tools:
-  - [ERDPlus](https://erdplus.com/)
-    * *Prof. Walden's go-to tool that lets you convert an ERD into a relational schema.*
-  - [LucidChart](https://www.lucidchart.com/pages/?anonId=0.1c8414ae17e41a83751)
-  - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
-
-68. Visit StackOverflow's [What is the different between ER Diagram and Database Schema?](https://stackoverflow.com/questions/17641134/what-is-different-between-er-diagram-and-database-schema) page to learn more.
 
 ## Additional Data Model Resources
 
