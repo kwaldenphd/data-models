@@ -351,7 +351,7 @@ Free tools you can use to create ERDs:
 
 59. By this point you may be wondering why our data tables have various `id` columns. 
 
-60. The ERD we built in Q17 outlines the conceptual relationships across our data structures.
+60. The ERD we built in Q6 outlines the conceptual relationships across our data structures.
 
 61. But relationship database programs require matching data fields and unique identifiers to be able to manifest those conceptual relationships.
 
