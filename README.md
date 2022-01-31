@@ -480,7 +480,7 @@ To learn more about database design, ERDs, and relational schema:
 
 86. Click the "New Database" icon in the top-left hand menu bar, or select "New Database" under "Files."
 
-87. Save this database with a `.sql` file extension in a dedicated location on your computer.
+87. Save this database with a `.db` file extension in a dedicated location on your computer.
 
 ## Importing tables from `.csv` files
 
