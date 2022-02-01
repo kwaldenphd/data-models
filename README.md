@@ -351,12 +351,7 @@ Free tools you can use to create ERDs:
 
 59. By this point you may be wondering why our data tables have various `id` columns. 
 
-60. The ERD we built in Q6 outlines the conceptual relationships across our data structures.
-
-ERDs are a conceptual model of a relational database structure.
-
-Relational schema model the logical, machine-readable relationship across  tables and fields (linked by primary/foreign keys)
-
+60. The ERD we built in Q6 outlines the conceptual relationships across our data structures. To put that another way, ERDs are a conceptual model of a relational database structure.
 
 61. But relationship database programs require matching data fields and unique identifiers to be able to manifest those conceptual relationships.
 
@@ -376,7 +371,7 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 65. ERDs are a conceptual model of the relationships in a database. An ERD may not directly map onto the structure of tables, fields, etc. in a relational database.
 
-66. But, we might also want to represent our database structure based on tables, primary keys, and foreign keys. Relational schema (RS) model the logical, machine-readable relationship across tables and fields (linked by primary/foreign keys)
+66. But, we might also want to represent our database structure based on tables, primary keys, and foreign keys. Relational schema (RS) model the logical, machine-readable relationship across tables and fields (linked by primary/foreign keys).
 
 67. Building a RS diagram involves listing fields by table, identifying relationships across tables, and which fields are serving as primary/foreign keys.
 
