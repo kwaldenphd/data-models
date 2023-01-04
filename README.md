@@ -40,12 +40,13 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
 # Table of Contents
 
 - [Lecture & live coding](#lecture--live-coding)
+- [Overview](#overview)
 - [Lab notebook template](#lab-notebook-template)
 - [Data](#data)
 - [Tools](#tools)
 - [Understanding Relational Databases](#understanding-relational-databases)
   * [From table to database](#from-table-to-database)
-  * [Why do we need relational dabases?](#why-do-we-need-relational-databases)
+  * [Why do we need relational databases?](#why-do-we-need-relational-databases)
   * [What is a relational database?](#what-is-a-relational-database)
     * [Database Terminology](#database-terminology)
   * [What is an ERD?](#what-is-an-erd)
@@ -56,20 +57,15 @@ Peer review and editing was provided by Spring 2021 graduate teaching assistant 
   * [Building an ERD](#building-an-erd)
     * [Where Are My Keys?](#where-are-my-keys)
     * [Relational Schema](#relational-schema)
-  * [Additional Resources](#additional-resources)
-- [What is SQLite](#what-is-sqlite)
-- [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
-- [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
-  * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
-  * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
-- - [What is SQLite](#what-is-sqlite)
-- [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
-- [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
-  * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
-  * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
+  * [Additional Resources](#additional-data-model-resources)
+- [Getting started with SQL](#getting-started-with-sql)
+  * [What is SQLite](#what-is-sqlite)
+  * [Installing DB Browser for SQLite](#installing-db-browser-for-sqlite)
+  * [Getting Started with DB Browser for SQLite](#getting-started-with-db-browser-for-sqlite)
+    * [Importing Tables from `.csv` Files](#importing-tables-from-csv-files)
+    * [Setting Keys and Building Table Relationships](#setting-keys-and-building-table-relationships)
 - [Additional Lab Notebook Questions](#additional-lab-notebook-questions)
 - [Lab Notebook Questions](#lab-notebook-questions)
-
 
 # Lecture & Live Coding
 
@@ -85,6 +81,15 @@ Example:
  <tr><td>
 <img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
 <td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?pid=4e53d598-3a0a-4ac9-9d9e-ae2f010196ca">Lecture/live coding playlist</a></td>
+  </tr>
+  </table>
+
+# Overview
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2c0a29bb-4b41-42ac-9862-ae2f00f68167">Overview</a></td>
   </tr>
   </table>
 
@@ -126,6 +131,13 @@ You're welcome to draw these by hand, but there are free online and downloadable
   - [Visual Paradigm Online](https://online.visual-paradigm.com/diagrams/solutions/free-erd-tool/)
 
 # Understanding Relational Databases
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=c6042902-e729-4b39-a6f9-ae2f00f8b92e">Understanding Relational Databases</a></td>
+  </tr>
+  </table>
 
 ## From table to database
 
@@ -248,6 +260,13 @@ Linking our three individual data tables in a relational database will enable us
 
 ### Database Terminology
 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=583db279-091c-43c7-a777-ae2f00fabc50">Database Terminology</a></td>
+  </tr>
+  </table>
+
 A ***database*** is an information structure composed of identically structured records, which can be created, modified, and accessed individually…Each record of a database contains segments called fields. The set of all records sharing the same field structure is called a table. Databases structured as a single table are called flat file databases; those with multiple interlocking tables are relational databases.
 
 Some terminology that goes along with relational database systems (sometimes called RDBMS, for relational database management system).
@@ -256,6 +275,13 @@ Some terminology that goes along with relational database systems (sometimes cal
 - A **relationship** is the connection or association (most commonly) between two entities.
 
 ## What is an ERD?
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=583db279-091c-43c7-a777-ae2f00fabc50">ERDs</a></td>
+  </tr>
+  </table>
 
 An entity relationship diagram (sometimes called an ER Diagram or ERD) is a visual representation of tabular data structures that are linked as part of a database. Building an ERD requires understanding the underlying structure of your data, as well as how you want to create links across individual tables. ERDs have a specific vocabulary for describing database structure. In 1997, computer scientist Peter Chen outlined a natural language framework for building ER diagrams.
 
@@ -343,6 +369,13 @@ Free tools you can use to create ERDs:
 
 ### Where Are My Keys?
 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5bad6da6-aa6b-4188-955b-ae2f00ff0583">Keys</a></td>
+  </tr>
+  </table>
+  
 By this point you may be wondering why our data tables have various `id` columns. The ERD we built in Q6 outlines the conceptual relationships across our data structures. To put that another way, ERDs are a conceptual model of a relational database structure.
 
 But relationship database programs require matching data fields and unique identifiers to be able to manifest those conceptual relationships. These unique identifiers and matching fields are called `keys`.
@@ -359,6 +392,13 @@ Image from [Foreign and Primary Key Differences (Visually Explained),](https://w
 
 ### Relational Schema
 
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5bad6da6-aa6b-4188-955b-ae2f00ff0583">Relational Schema</a></td>
+  </tr>
+  </table>
+
 ERDs are a conceptual model of the relationships in a database. An ERD may not directly map onto the structure of tables, fields, etc. in a relational database.
 
 But, we might also want to represent our database structure based on tables, primary keys, and foreign keys. Relational schema (RS) model the logical, machine-readable relationship across tables and fields (linked by primary/foreign keys). Building a RS diagram involves listing fields by table, identifying relationships across tables, and which fields are serving as primary/foreign keys.
@@ -373,6 +413,13 @@ Visit StackOverflow's [What is the different between ER Diagram and Database Sch
 <ul><li>Folks are welcome/encouraged to collaborate on this question. If so, include the names of your collaborators as part of your answer to this question.</li></ul></blockquote>
 
 ## Additional Data Model Resources
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=28ed2cba-780a-4090-9b41-ae2f012ad599">Getting Started With ERDPlus</a></td>
+  </tr>
+  </table>
 
 Free tools you can use to create ERDs and relational schema:
 - Free generic drawing tools:
@@ -391,6 +438,13 @@ To learn more about database design, ERDs, and relational schema:
 - [Lucid Chart "ER Diagrams"](https://www.lucidchart.com/pages/er-diagrams)
 
 # Getting started with SQL
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=1c3a8553-0ceb-48cd-a658-ae2f012db592">SQLite</a></td>
+  </tr>
+  </table>
 
 SQL stands for Structured Query Language. SQL "is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS)...It is particularly useful in handling structured data, i.e. data incorporating relations among entities and variables" ([Wikipedia, "SQL"](https://en.wikipedia.org/wiki/SQL)).
 
@@ -529,6 +583,13 @@ We'll spend more time with SQL in an upcoming lab, but if you want to explore:
 - [Library Carpentry "SQL"](https://librarycarpentry.org/lc-sql/)
 
 # Additional Lab Notebook Questions
+
+<table>
+ <tr><td>
+<img src="https://elearn.southampton.ac.uk/wp-content/blogs.dir/sites/64/2021/04/PanPan.png" alt="Panopto logo" width="50"/></td>
+<td><a href="https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=45b452c5-6e22-4fd7-9a81-ae2f0132f1b6">Lab Notebook Questions 12 & 13</a></td>
+  </tr>
+  </table>
 
 There are two options for the additional lab notebook questions. Though you are welcome to do both, **<ins>you are only required to complete one</ins>.**
 
